@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --live-reload",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "android": "ng build && npx cap sync && cd android && gradlew assembleDebug && cd ../ && npx cap run android --target=Pixel_9_API_35"
+    "emulator": "ng build && npx cap sync && cd android && gradle assembleDebug && cd ../ && npx cap run android --target=Pixel_8_API_35",
+    "phone": "ng build && npx cap sync && cd android && gradle assembleDebug && cd ../ && npx cap run android --target=adb-fb63480d-LWkDgS._adb-tls-connect._tcp"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@capacitor/android": "^6.1.2",
     "@capacitor/angular": "^2.0.3",
     "@capacitor/core": "latest",
+    "ng-zorro-antd": "^17.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
