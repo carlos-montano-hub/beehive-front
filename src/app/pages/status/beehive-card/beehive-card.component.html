@@ -1,0 +1,42 @@
+@if (beehive) {
+<nz-card
+  class="card"
+  [nzTitle]="beehive.name"
+  [nzExtra]="hasEvent() ? extraTemplate : undefined"
+>
+  <ng-template #extraTemplate>
+    <span
+      nz-icon
+      nzType="exclamation-circle"
+      nzTheme="twotone"
+      [nzTwotoneColor]="'#cc0000'"
+      style="font-size: 25px"
+    ></span>
+  </ng-template>
+  <div></div>
+  <div class="gauges-container">
+    <ngx-gauge
+      class="gauge"
+      [type]="'semi'"
+      [value]="beehive.temperature"
+      [label]="'Temperature'"
+      [append]="'°C'"
+      [thick]="10"
+      [size]="125"
+      [thresholds]="thresholds"
+      [min]="30"
+      [max]="40"
+    />
+    <!-- Humidity Section with Droplet SVG -->
+    <div class="humidity">
+      <p>{{ beehive.humidity }}%</p>
+      <img
+        src="assets/icons/droplet.svg"
+        alt="Humidity"
+        width="50"
+        height="50"
+      />
+    </div>
+  </div>
+</nz-card>
+}

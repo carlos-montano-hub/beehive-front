@@ -1,18 +1,33 @@
-import { Component } from '@angular/core';
-import { NgZorroModule } from '../../ng-zorro-module/ng-zorro.module';
-import { SideMenuComponent } from './side-menu/side-menu.component';
-
+import { Component, OnInit } from '@angular/core';
+import { SharedModule } from '../../modules/shared.module';
+import { Language, languages } from '../../services/translation/languages-list';
+import { TranslationService } from '../../services/translation/translation.service';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [NgZorroModule, SideMenuComponent],
+  imports: [SharedModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css',
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
   isMenuOpen = false;
+  visible = false;
+  currentLanguage?: Language;
+  languages: Language[] = [];
+
+  constructor(private readonly translationService: TranslationService) {}
+
+  ngOnInit() {
+    this.languages = languages;
+    this.currentLanguage = this.translationService.currentLanguage;
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  changeLanguage(lang: Language) {
+    this.currentLanguage = this.translationService.currentLanguage;
+    this.translationService.changeLang(lang.key);
   }
 }

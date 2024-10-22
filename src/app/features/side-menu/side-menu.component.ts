@@ -1,20 +1,20 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgZorroModule } from '../../../ng-zorro-module/ng-zorro.module';
+import { SharedModule } from '../../modules/shared.module';
+
 @Component({
   selector: 'app-side-menu',
   standalone: true,
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.css',
-  imports: [CommonModule, NgZorroModule],
+  imports: [SharedModule],
 })
 export class SideMenuComponent {
-  @Input() isMenuOpen = false;
+  @Input() isMenuCollapsed = true;
 
   @Output() isMenuOpenChange = new EventEmitter<boolean>();
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-    this.isMenuOpenChange.emit(this.isMenuOpen);
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+    this.isMenuOpenChange.emit(this.isMenuCollapsed);
   }
 }

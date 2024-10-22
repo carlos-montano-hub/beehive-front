@@ -1,0 +1,23 @@
+.gauge {
+  padding: 15px;
+}
+
+.card {
+  width: 100%;
+}
+.gauges-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.humidity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.humidity > p {
+  padding-bottom: 1px;
+  margin-bottom: 0;
+}

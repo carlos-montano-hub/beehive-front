@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { MyPageComponent } from './pages/my-page/my-page.component';
+import { StatusComponent } from './pages/status/status.component';
 
 export const routes: Routes = [
-  { path: 'my-page', component: MyPageComponent },
-  { path: '**', component: MyPageComponent },
+  { path: 'status', component: StatusComponent },
+  { path: '**', component: StatusComponent },
 ];

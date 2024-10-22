@@ -1,4 +1,9 @@
-<nz-sider nzCollapsible nzWidth="200px">
+<nz-sider
+  [(nzCollapsed)]="isMenuCollapsed"
+  class="sider"
+  nzCollapsible
+  nzWidth="200px"
+>
   <div class="logo"></div>
   <ul nz-menu nzTheme="dark" nzMode="inline">
     <li nz-menu-item>
