@@ -13,30 +13,47 @@
       style="font-size: 25px"
     ></span>
   </ng-template>
-  <div></div>
-  <div class="gauges-container">
-    <ngx-gauge
-      class="gauge"
-      [type]="'semi'"
-      [value]="beehive.temperature"
-      [label]="'Temperature'"
-      [append]="'°C'"
-      [thick]="10"
-      [size]="125"
-      [thresholds]="thresholds"
-      [min]="30"
-      [max]="40"
-    />
-    <!-- Humidity Section with Droplet SVG -->
-    <div class="humidity">
-      <p>{{ beehive.humidity }}%</p>
+
+  <div nz-row>
+    <div nz-col nzSpan="12" class="temperature-container">
+      <ngx-gauge
+        class="gauge"
+        [type]="'semi'"
+        [value]="beehive.temperature"
+        [append]="'°C'"
+        [thick]="10"
+        [size]="125"
+        [thresholds]="thresholds"
+        [min]="30"
+        [max]="40"
+      />
+    </div>
+    <div nz-col nzSpan="12" class="center-flex">
       <img
         src="assets/icons/droplet.svg"
         alt="Humidity"
         width="50"
         height="50"
+        class="droplet-svg"
+        [ngClass]="{
+          'droplet-high': beehive.humidity > 60,
+          'droplet-good': beehive.humidity >= 50 && beehive.humidity <= 60,
+          'droplet-low': beehive.humidity < 50
+        }"
       />
+      <p>{{ beehive.humidity }}%</p>
     </div>
   </div>
+  <div nz-row>
+    <div nz-col nzSpan="12" class="center-flex">
+      <p>Temperature</p>
+    </div>
+    <div nz-col nzSpan="12" class="center-flex">
+      <div class="humidity-label">
+        <p>Humidity</p>
+      </div>
+    </div>
+  </div>
+  <app-map-component [lat]="beehive.coordY" [lng]="beehive.coordx" />
 </nz-card>
 }

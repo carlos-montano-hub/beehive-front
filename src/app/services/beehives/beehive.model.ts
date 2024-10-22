@@ -7,15 +7,15 @@ export interface Beehive {
   coordx: number;
   weight: number;
 }
-
+// 29.063654970731363, -111.10040252123882;
 export const beehivesTestData: Beehive[] = [
   {
     temperature: 35.2,
     name: 'Hive A',
     id: 1,
     humidity: 60.5,
-    coordY: 19.4326,
-    coordx: -99.1332,
+    coordY: 29.0636,
+    coordx: -111.1,
     weight: 75.3,
   },
   {

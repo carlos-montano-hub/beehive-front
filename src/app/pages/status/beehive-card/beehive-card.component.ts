@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { MapComponentComponent } from '../../../features/map-component/map-component.component';
 import { SharedModule } from '../../../modules/shared.module';
 import { Beehive } from '../../../services/beehives/beehive.model';
 
 @Component({
   selector: 'app-beehive-card',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule, MapComponentComponent],
   templateUrl: './beehive-card.component.html',
   styleUrl: './beehive-card.component.css',
 })
@@ -32,7 +33,7 @@ export class BeehiveCardComponent {
       bgOpacity: 0.2,
     },
     '36': {
-      color: 'red',
+      color: '#cc0000',
       bgOpacity: 0.2,
     },
   };
